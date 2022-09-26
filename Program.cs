@@ -66,7 +66,7 @@ namespace PProjetoOng
                         Console.WriteLine("                                    <<<<<LISTAR todos os adotantes cadastrados>>>>>");
                         BancoOng db = new BancoOng();
                         string sql = "Select cpf, nome, sexo, telefone, endereco, dataNascimento from pessoa where status = 'A'";
-                        db.SelectTablePessoa(sql);
+                        db.SelectTableAdotante(sql);
                         Until.Pause();
                         break;
                     case 5:
@@ -125,7 +125,7 @@ namespace PProjetoOng
             Console.WriteLine("                                   <<<<<NOVA ADOÇÃO>>>>                        ");
             int pet = BuscarPet(db);
             if (pet == 0) return;
-            string cpf = BuscarPessoa(db);
+            string cpf = BuscarAdotante(db);
             if (cpf == "0") return;
             confirmacao = Until.ColetarInt("Deseja confirmar adoção?\n1- Sim\n2-Não\nOpção: ");
             if (confirmacao != 1) return;
@@ -174,7 +174,7 @@ namespace PProjetoOng
             } while (true);
         }
 
-        static String BuscarPessoa(BancoOng db)
+        static String BuscarAdotante(BancoOng db)
         {
             do
             {
@@ -183,7 +183,7 @@ namespace PProjetoOng
                 do cpf = Until.ColetarString("Informe o CPF do adotante que deseja encontrar: ");
                 while (!Until.ValidarCpf(cpf));
                 sql = $"Select cpf, nome, sexo, telefone, endereco, dataNascimento from pessoa where cpf ='{cpf}' and status = 'A';";
-                if (!db.SelectTablePessoa(sql)) return "0";
+                if (!db.SelectTableAdotante(sql)) return "0";
                 confirmacao = Until.ColetarInt("Confirmar adotante:\n1-Sim\n2-Não\nInforme opção:");
                 if (confirmacao == 1) return cpf;
             } while (true);
@@ -237,7 +237,7 @@ namespace PProjetoOng
 
             string sql = $"select cpf, nome, sexo, telefone, endereco, dataNascimento, status from dbo.pessoa where cpf = '{cpf}';";
             BancoOng db = new BancoOng();
-            if (!db.SelectTablePessoaInativa(sql)) return false;
+            if (!db.SelectTableAdotanteInativa(sql)) return false;
             else return true;
         }
 

@@ -44,7 +44,7 @@ namespace PProjetoOng
             End = Until.ColetarString("Informe o endereço completo do adotante: ");
             Telefone = Until.ColetarString("Informe o DDD + número do telefone: ").Replace("(", "").Replace("-", "").Replace(")", "");
             Status = 'A';
-            db.InsertTablePessoa(this);
+            db.InsertTableAdotante(this);
         }
 
         public static void EditarCadastroAdotante()
@@ -93,7 +93,7 @@ namespace PProjetoOng
             do cpf = Until.ColetarString("Informe o CPF do adotante terá seu cadastro excluido: ").Replace("-", "").Replace(".", "");
             while (!Until.ValidarCpf(cpf));
             string sql = $"Select cpf, nome, sexo, telefone, endereco, dataNascimento from pessoa where status = 'A' and cpf = {cpf}";
-            if (!db.SelectTablePessoa(sql)) return;
+            if (!db.SelectTableAdotante(sql)) return;
             else
             {
                 int op = Until.ColetarInt("Deseja confirmar a inativação do cadastro?\n(1 - Sim)\n(2 - Não)\nInforme opção: ");

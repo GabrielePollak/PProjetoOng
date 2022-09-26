@@ -92,7 +92,7 @@ namespace PProjetoOng
             conn.Close();
             return row;
         }
-        public void InsertTablePessoa(Adotante adotante)
+        public void InsertTableAdotante(Adotante adotante)
         {
             int row;
             try
@@ -123,7 +123,7 @@ namespace PProjetoOng
             conn.Close();
         }
 
-        public bool SelectTablePessoa(string sql)
+        public bool SelectTableAdotante(string sql)
         {
             try
             {
@@ -160,7 +160,7 @@ namespace PProjetoOng
             return false;
         }
 
-        public bool SelectTablePessoaInativa(string sql)
+        public bool SelectTableAdotanteInativa(string sql)
         {
             try
             {
