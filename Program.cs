@@ -9,8 +9,8 @@ namespace PProjetoOng
             do
             {
                 Console.Clear();
-                Console.WriteLine("                                  <<<<<Bem-vindo a central  ADOÇÃO DE PET ###\n### BEM VINDO>>>>>                                 ");
-                int op = Until.ColetarInt("Informe a operação que deseja realizar:\n1-Menu de pessoas adotantes)\n2- Cadastrar nova adoção\n3-Menu Pets\n4-Registro de adoções\n0-Sair\nOpção: ");
+                Console.WriteLine("                                  <<<<<Bem-vindo a central  ADOÇÃO DE PET >>>>>\n <<<< BEM VINDO>>>>>                                 ");
+                int op = Until.ColetarInt("Informe a operação que deseja realizar:\n1-Menu de pessoas adotantes\n2- Cadastrar nova adoção\n3-Menu Pets\n4-Registro de adoções\n0-Sair\nOpção: ");
                 switch (op)
                 {
                     case 0:
