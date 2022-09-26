@@ -38,4 +38,16 @@ uf varchar(3) not null
 foreign key (cpf) references Adotante(cpf)
 );
 
+create table regAdocao(
+cpf varchar(11) not null,
+nChipPet int not null,
+
+foreign key (cpf) references Adotante(cpf),
+foreign key (nChipPet) references pet(nChipPet),
+constraint pk_regAdocao primary key(cpf,nChipPet)
+);
+
+delete from regAdocao where nChipPet = 1
+
+
 
