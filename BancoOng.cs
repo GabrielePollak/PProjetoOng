@@ -13,7 +13,7 @@ namespace PProjetoOng
     internal class BancoOng
     {
 
-        string conexao = "Data Source=localhost; Initial Catalog=AgendaTelefone, User id = sa; Password = scoobypolly;";
+        string conexao = "Data Source=localhost; Initial Catalog=BancoOng, User id = sa; Password = scoobypolly;";
         SqlConnection conn;
 
         public BancoOng()
@@ -21,6 +21,10 @@ namespace PProjetoOng
             conn = new SqlConnection(conexao);
         }
 
+        public string Caminho()
+        {
+            return conexao;
+        }
 
 
         public int InsertTablePet(Pet pet)
